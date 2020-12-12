@@ -9,6 +9,15 @@
     <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" /> -->
     <link rel="stylesheet" href="ionic.bundle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="module">
+      import { popoverController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
+      window.popoverController = popoverController;
+    </script>
+    <script type="module">
+    import { alertController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
+    window.alertController = alertController;
+    </script>
 </head>
 
 <body>
@@ -18,13 +27,12 @@
                 <ion-title>My Monthly Expenses</ion-title>
             </ion-toolbar>
         </ion-header>
-
-        
+ 
         <ion-content>
 
             <ion-tabs>
 
-              <ion-tab tab="music">
+              <ion-tab tab="games">
                 <ion-header translucent>
                   <ion-toolbar>
                 <ion-title>Entertainment</ion-title>
@@ -35,18 +43,24 @@
                   <ion-card>
                     <ion-card-header>
                         <ion-card-title>Enter:</ion-card-title>
+                        <!-- <ion-button expand="block">Show Popover</ion-button> -->
                     </ion-card-header>
     
                     <ion-card-item>
-    
+                                            
+                      <ion-item>
+                        <ion-label position="floating">Add Image</ion-label>
+                        <ion-input id="input-image-e" type="text" placeholder="Enter image url"></ion-input>
+                    </ion-item>
+                      
                         <ion-item>
                             <ion-label position="floating">Item Name</ion-label>
-                            <ion-input type="text" id="input-item-e" placeholder="What did you buy?"></ion-input>
+                            <ion-input id="input-item-e" type="text" placeholder="What did you buy?"></ion-input>
                         </ion-item>
     
                         <ion-item>
                             <ion-label position="floating">Total Amount</ion-label>
-                            <ion-input type="number" id="input-amount-e" placeholder="Price?"></ion-input>
+                            <ion-input id="input-amount-e" type="number" placeholder="Price?"></ion-input>
                         </ion-item>
     
                         <div class="ion-margin ion-margin-vertical ion-text-right">
@@ -56,15 +70,17 @@
                             </ion-button>
                             <ion-button id="btn-confirm">Add On</ion-button>
                         </div>
-                    </ion-card-item>
-                </ion-card>
-                </ion-content>
+                    </ion-card-item>  
+                    <ion-card id="e-card-content">               
+                  </ion-card>          
+                 </ion-content>
+
               </ion-tab>
-        
+        <!----------------------------------------------------------------------------------------------------->
               <ion-tab tab="movies">
                 <ion-header translucent>
                   <ion-toolbar>
-                    <ion-title>Education</ion-title>
+                    <ion-title>Excercise</ion-title>
                   </ion-toolbar>
                 </ion-header>
         
@@ -95,65 +111,61 @@
                         </div>
                     </ion-card-item>
                 </ion-card>
+                <ion-item id="wishlist">                  
+                </ion-item>
                 </ion-content>
               </ion-tab>
         
-              <ion-tab tab="games">
+              <ion-tab tab="music">
                 <ion-header translucent>
                   <ion-toolbar>
-                    <ion-title>Consumables</ion-title>
+                    <ion-title>Wishlist</ion-title>
                   </ion-toolbar>
                 </ion-header>
         
                 <ion-content fullscreen class="ion-padding">
-                  <ion-card>
-                    <ion-card-header>
-                        <ion-card-title>Enter:</ion-card-title>
-                    </ion-card-header>
-    
-                    <ion-card-item>
-    
-                        <ion-item>
-                            <ion-label position="floating">Item Name</ion-label>
-                            <ion-input type="text" id="input-reason"></ion-input>
-                        </ion-item>
-    
-                        <ion-item>
-                            <ion-label position="floating">Total Amount</ion-label>
-                            <ion-input type="number" id="input-amount"></ion-input>
-                        </ion-item>
-    
-                        <div class="ion-margin ion-margin-vertical ion-text-right">
-                            <ion-button fill="outline" color="danger" id="btn-cancel">
-                                <ion-icon name="close"></ion-icon>
-                                Clear
-                            </ion-button>
-                            <ion-button id="btn-confirm">Add On</ion-button>
+                  <ion-card>  
+                    <ion-item>
+                      <ion-label position="floating">Item Name:</ion-label>
+                      <ion-input type="text" id="input-wishlist" placeholder="Wishlist item"></ion-input>
+                  </ion-item>
+                        <div class="ion-margin ion-margin-vertical ion-text-right"> 
+                          <ion-button fill="outline" color="danger" id="btn-cancel-2">
+                            <ion-icon name="close"></ion-icon>
+                            Clear
+                        </ion-button>                         
+                            <ion-button id="btn-confirm-2">Add</ion-button>
                         </div>
                     </ion-card-item>
                 </ion-card>
+                <ion-list id="wishlist-checkbox">                 
+                </ion-list>
                 </ion-content>
               </ion-tab>
         
               <ion-tab-bar slot="bottom">
-                <ion-tab-button tab="music">
-                  <ion-label>Music</ion-label>
-                  <ion-icon name="musical-note"></ion-icon>
-                </ion-tab-button>
-                <ion-tab-button tab="movies">
-                  <ion-label>Movies</ion-label>
-                  <ion-icon name="videocam"></ion-icon>
-                </ion-tab-button>
                 <ion-tab-button tab="games">
                   <ion-label>Games</ion-label>
                   <ion-icon name="game-controller"></ion-icon>
                 </ion-tab-button>
+                <ion-tab-button tab="music">
+                  <ion-label>Excercise</ion-label>
+                  <ion-icon name="bicycle"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="movies">
+                  <ion-label>Profile</ion-label>
+                  <ion-icon name="person-circle-outline"></ion-icon>
+                </ion-tab-button>
+
               </ion-tab-bar>
             </ion-tabs>
         </ion-content>
     </ion-app>
 
     <script src="app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
