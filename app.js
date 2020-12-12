@@ -47,10 +47,16 @@
 //     return alert.present();
 //   }
 const AddButton = document.getElementById('btn-confirm');
+const ClearBtn = document.getElementById('btn-cancel');
+var inputItemE = document.getElementById('input-item-e');
+var inputAmountE = document.getElementById('input-amount-e');
 
 function GetAddedResults(){
-    let n = document.getElementById('input-amount').value;
-    console.log("n")
+    console.log(inputItemE.value, "$" + inputAmountE.value);
 }
 
 AddButton.addEventListener("click", GetAddedResults);
+ClearBtn.addEventListener("click", function(){
+    inputItemE.value = "";
+    inputAmountE.value = "";
+  });
