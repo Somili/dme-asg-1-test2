@@ -1,11 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Simple Budget With Ionic UI</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
 </head>
+
 <body>
+    <ion-app>
+        <ion-header>
+            <ion-toolbar color="primary">
+                <ion-title>My Monthly Expenses</ion-title>
+            </ion-toolbar>
+        </ion-header>
+
+        
+        <ion-content>
+
+            <ion-tabs>
+
+              <ion-tab tab="music">
+                <ion-header translucent>
+                  <ion-toolbar>
+                <ion-title>Entertainment</ion-title>
+                  </ion-toolbar>
+                </ion-header>
+        
+                <ion-content fullscreen class="ion-padding">
+                  <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>Enter:</ion-card-title>
+                    </ion-card-header>
     
+                    <ion-card-item>
+    
+                        <ion-item>
+                            <ion-label position="floating">Item-name</ion-label>
+                            <ion-input type="text" id="input-reason"></ion-input>
+                        </ion-item>
+    
+                        <ion-item>
+                            <ion-label position="floating">Total Amount</ion-label>
+                            <ion-input type="number" id="input-amount"></ion-input>
+                        </ion-item>
+    
+                        <div class="ion-margin ion-margin-vertical ion-text-right">
+                            <ion-button fill="outline" color="danger" id="btn-cancel">
+                                <ion-icon name="close"></ion-icon>
+                                Clear
+                            </ion-button>
+                            <ion-button id="btn-confirm">Add On</ion-button>
+                        </div>
+                    </ion-card-item>
+                </ion-card>
+                </ion-content>
+              </ion-tab>
+        
+              <ion-tab tab="movies">
+                <ion-header translucent>
+                  <ion-toolbar>
+                    <ion-title>Education</ion-title>
+                  </ion-toolbar>
+                </ion-header>
+        
+                <ion-content fullscreen class="ion-padding">
+                  <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>Enter:</ion-card-title>
+                    </ion-card-header>
+    
+                    <ion-card-item>
+    
+                        <ion-item>
+                            <ion-label position="floating">Item-name</ion-label>
+                            <ion-input type="text" id="input-reason"></ion-input>
+                        </ion-item>
+    
+                        <ion-item>
+                            <ion-label position="floating">Total Amount</ion-label>
+                            <ion-input type="number" id="input-amount"></ion-input>
+                        </ion-item>
+    
+                        <div class="ion-margin ion-margin-vertical ion-text-right">
+                            <ion-button fill="outline" color="danger" id="btn-cancel">
+                                <ion-icon name="close"></ion-icon>
+                                Clear
+                            </ion-button>
+                            <ion-button id="btn-confirm">Add On</ion-button>
+                        </div>
+                    </ion-card-item>
+                </ion-card>
+                </ion-content>
+              </ion-tab>
+        
+              <ion-tab tab="games">
+                <ion-header translucent>
+                  <ion-toolbar>
+                    <ion-title>Consumables</ion-title>
+                  </ion-toolbar>
+                </ion-header>
+        
+                <ion-content fullscreen class="ion-padding">
+                  <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>Enter:</ion-card-title>
+                    </ion-card-header>
+    
+                    <ion-card-item>
+    
+                        <ion-item>
+                            <ion-label position="floating">Item Name</ion-label>
+                            <ion-input type="text" id="input-reason"></ion-input>
+                        </ion-item>
+    
+                        <ion-item>
+                            <ion-label position="floating">Total Amount</ion-label>
+                            <ion-input type="number" id="input-amount"></ion-input>
+                        </ion-item>
+    
+                        <div class="ion-margin ion-margin-vertical ion-text-right">
+                            <ion-button fill="outline" color="danger" id="btn-cancel">
+                                <ion-icon name="close"></ion-icon>
+                                Clear
+                            </ion-button>
+                            <ion-button id="btn-confirm">Add On</ion-button>
+                        </div>
+                    </ion-card-item>
+                </ion-card>
+                </ion-content>
+              </ion-tab>
+        
+              <ion-tab-bar slot="bottom">
+                <ion-tab-button tab="music">
+                  <ion-label>Music</ion-label>
+                  <ion-icon name="musical-note"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="movies">
+                  <ion-label>Movies</ion-label>
+                  <ion-icon name="videocam"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="games">
+                  <ion-label>Games</ion-label>
+                  <ion-icon name="game-controller"></ion-icon>
+                </ion-tab-button>
+              </ion-tab-bar>
+            </ion-tabs>
+        </ion-content>
+    </ion-app>
+
+    <script src="app.js"></script>
 </body>
+
 </html>
