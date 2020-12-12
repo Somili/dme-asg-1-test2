@@ -122,7 +122,7 @@ const alert = await alertController.create({
         `
         <ion-item>
             <ion-label>${wishlist_item}</ion-label>
-            <ion-checkbox color="primary" checked slot="start"></ion-checkbox>
+            <ion-checkbox color="danger" checked slot="start"></ion-checkbox>
           </ion-item>`
     )
     return true; 
