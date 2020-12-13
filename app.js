@@ -131,6 +131,10 @@ const alert = await alertController.create({
 ClearBtn2.addEventListener("click", function(){
     wishlist_item = "";
 });
+//Menu---------------------------------------------------------------------------
+async function openMenu() {
+    await menuController.open();
+}
 // //Popover---------------------------------------------------------------------------------
 // let currentPopover = null;
 
