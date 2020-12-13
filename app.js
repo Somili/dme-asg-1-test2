@@ -66,7 +66,7 @@ if (eItem == 0)
 { 
 //    alert("Please enter required fields");  	
 const alert = await alertController.create({
-    header: 'Please Enter Required Field?',
+    header: 'Please Enter Required Field',
     message: 'Please fill in item name',
     buttons: ['Ok']
   });
@@ -109,7 +109,7 @@ if (inputWishlist.value == 0)
 { 
 //    alert("Please enter required fields");  	
 const alert = await alertController.create({
-    header: 'Please Enter Required Field?',
+    header: 'Please Enter Required Field',
     message: 'Please fill in item name',
     buttons: ['Ok']
   });
@@ -135,81 +135,114 @@ ClearBtn2.addEventListener("click", function(){
 async function openMenu() {
     await menuController.open();
 }
-// //Popover---------------------------------------------------------------------------------
-// let currentPopover = null;
+//Profile Page----------------------------------------------------------------------------
+const SaveButton = document.getElementById('btn-save');
+const ResetButton = document.getElementById('btn-reset');
+var inputImageP = document.getElementById('input-image-p');
+var inputNameP = document.getElementById('input-name-p');
+var inputAgeP = document.getElementById('input-age-p');
+var gender = document.getElementById('gender');
+var notification = document.getElementById('notifications');
+var birthYear = document.getElementById('birthYear');
+var birthMonth = document.getElementById('birthMonth');
 
-// const buttons = document.querySelectorAll('ion-button');
-// for (var i = 0; i < buttons.length; i++) {
-//   buttons[i].addEventListener('click', handleButtonClick);
-// }
 
-// async function handleButtonClick(ev) {
-//   popover = await popoverController.create({
-//     component: 'popover-example-page',
-//     event: ev,
-//     translucent: true
-//   });
-//   currentPopover = popover;
-//   return popover.present();
-// }
-
-// function dismissPopover() {
-//   if (currentPopover) {
-//     currentPopover.dismiss().then(() => { currentPopover = null; });
-//   }
-// }
-
-// customElements.define('popover-example-page', class ModalContent extends HTMLElement {
-//   connectedCallback() {
-//     this.innerHTML = `
+SaveButton.addEventListener("click", async function update(){
     
-//     <ion-card-item>
-                      
-//     <ion-item>
-//         <ion-label position="floating">Item Name</ion-label>
-//         <ion-input id="input-item-e" type="text" placeholder="What did you buy?"></ion-input>
-//     </ion-item>
+var pImage = inputImageP.value;
+var pName = inputNameP.value;
+var pAge = inputAgeP.value;
+var vGender = gender.value;
+var vNoti = notification.value;
+var vBirthYear = birthYear.value;
+var vBirthMonth = birthMonth.value;
 
-//     <ion-item>
-//         <ion-label position="floating">Total Amount</ion-label>
-//         <ion-input id="input-amount-e" type="number" placeholder="Price?"></ion-input>
-//     </ion-item>
+if (pName == 0)
+{ 
+//    alert("Please enter required fields");  	
+const alert = await alertController.create({
+    header: 'Please Enter Required Field',
+    message: 'Please fill in your name',
+    buttons: ['Ok']
+  });
 
-//     <div class="ion-margin ion-margin-vertical ion-text-right">
-//         <ion-button fill="outline" color="danger" id="btn-cancel">
-//             <ion-icon name="close"></ion-icon>
-//             Clear
-//         </ion-button>
-//         <ion-button id="btn-confirm">Add On</ion-button>
-//     </div>
-// </ion-card-item> 
-//     `;
-// const AddButton = document.getElementById('btn-confirm');
-// const ClearBtn = document.getElementById('btn-cancel');
-// var inputItemE = document.getElementById('input-item-e');
-// var inputAmountE = document.getElementById('input-amount-e');
-// $(AddButton).on("click", "btn-confirm", function(){
-//     console.log(inputItemE.value, "$" + inputAmountE.value);
+  await alert.present();
+   return false; 
+}else{
     
-//     var eItem = inputItemE.value;
-//     var eAmount = inputAmountE.value;
+    // $("#profileEdit").prepend(
+        // `
+        // <ion-title>.</ion-title><br>
+        //       <ion-item >
+        //         <ion-avatar slot="start">
+        //           <img
+        //             src="${pImage}">
+        //         </ion-avatar>
+        //         <ion-label>${pName}
+        //           <p>${pAge} year old</p>
+        //         </ion-label>
+        //       </ion-item>
+        //       <div class="ion-margin ion-margin-vertical ion-text-left">
+        //         <br>
+        //         <p>Gender: ${vGender}</p>
+        //         <p>Notifications: ${vNoti}</p>
+        //         <p>Birth Year: ${vBirthYear}</p>
+        //         <p>Birth Month: ${vBirthMonth}</p>
+        //       </div>`
+    var first = document.getElementById("profileEdit").innerHTML; 
+    var second = first.replace("Update Profile at top",         
+    `
+    <ion-title>.</ion-title><br>
+          <ion-item >
+            <ion-avatar slot="start">
+              <img
+                src="${pImage}">
+            </ion-avatar>
+            <ion-label>${pName}
+              <p>${pAge} year old</p>
+            </ion-label>
+          </ion-item>
+          <div class="ion-margin ion-margin-vertical ion-text-left">
+            <br>
+            <p>Gender: ${vGender}</p>
+            <p>Notifications: ${vNoti}</p>
+            <p>Birth Year: ${vBirthYear}</p>
+            <p>Birth Month: ${vBirthMonth}</p>
+          </div>`);
+    document.getElementById("profileEdit").innerHTML = second;
     
-//         $("#e-card-content").prepend(
-//             `
-            
-//             <ion-card-header>
-//               <ion-card-subtitle>Entertainment Expense</ion-card-subtitle>
-//               <ion-card-title>${eItem},${eAmount}</ion-card-title>
-//             </ion-card-header>
-//             <ion-card-content>
-//               Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
-//             </ion-card-content>`
-//         )});
-    
-//     ClearBtn.addEventListener("click", function(){
-//         inputItemE.value = "";
-//         inputAmountE.value = "";
-// });
-// // AddButton.addEventListener("click", function(){
+    return true; 
+}   
+});
 
-// }});
+ResetButton.addEventListener("click", function reset(){
+    var pImage = inputImageP.value;
+var pName = inputNameP.value;
+var pAge = inputAgeP.value;
+var vGender = gender.value;
+var vNoti = notification.value;
+var vBirthYear = birthYear.value;
+var vBirthMonth = birthMonth.value;
+
+    var old = document.getElementById("profileEdit").innerHTML; 
+    var New = old.replace(`
+    <ion-title>.</ion-title><br>
+          <ion-item >
+            <ion-avatar slot="start">
+              <img
+                src="${pImage}">
+            </ion-avatar>
+            <ion-label>${pName}
+              <p>${pAge} year old</p>
+            </ion-label>
+          </ion-item>
+          <div class="ion-margin ion-margin-vertical ion-text-left">
+            <br>
+            <p>Gender: ${vGender}</p>
+            <p>Notifications: ${vNoti}</p>
+            <p>Birth Year: ${vBirthYear}</p>
+            <p>Birth Month: ${vBirthMonth}</p>
+          </div>`,"Update Profile at top");
+    document.getElementById("profileEdit").innerHTML = New;
+    
+});

@@ -34,157 +34,217 @@
       <ion-tabs>
 
         <ion-tab tab="games">
-          
+          <ion-header translucent>
+            <ion-toolbar>
+              <ion-title>Entertainment</ion-title>
+            </ion-toolbar>
+          </ion-header>
+
           <ion-content fullscreen class="ion-padding">
-            
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Enter:</ion-card-title>
+                <!-- <ion-button expand="block">Show Popover</ion-button> -->
+              </ion-card-header>
+
+              <ion-card-item>
+
+                <ion-item>
+                  <ion-label position="floating">Add Image</ion-label>
+                  <ion-input id="input-image-e" type="text" placeholder="Enter image url"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label position="floating">Item Name</ion-label>
+                  <ion-input id="input-item-e" type="text" placeholder="What did you buy?"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label position="floating">Total Amount</ion-label>
+                  <ion-input id="input-amount-e" type="number" placeholder="Price?"></ion-input>
+                </ion-item>
+
+                <div class="ion-margin ion-margin-vertical ion-text-right">
+                  <ion-button fill="outline" color="danger" id="btn-cancel">
+                    <ion-icon name="close"></ion-icon>
+                    Clear
+                  </ion-button>
+                  <ion-button color="danger" id="btn-confirm">Add On</ion-button>
+                </div>
+              </ion-card-item>
+              <ion-card id="e-card-content">
+              </ion-card>
+          </ion-content>
+
+        </ion-tab>
+        <!----------------------------------------------------------------------------------------------------->
+        <ion-tab tab="movies">
+          </ion-header>
+
+          <ion-content fullscreen class="ion-padding">
             <ion-menu side="start" content-id="main-content">
               <ion-header>
                 <ion-toolbar translucent>
-                  <ion-title>Edit</ion-title>
+                  <div class="ion-margin ion-text-right">
+                    <ion-title >Edit</ion-title>
+                    <ion-button fill="outline" color="danger" id="btn-reset">Reset</ion-button>
+                      <ion-button color="danger" id="btn-save">Save</ion-button>
+                    </div>
+                  
                 </ion-toolbar>
               </ion-header>
               <ion-content>
-                <ion-card-item>
-
+                <ion-list>
                   <ion-item>
                     <ion-label position="floating">Add Image</ion-label>
-                    <ion-input id="input-image-e" type="text" placeholder="Enter image url"></ion-input>
+                    <ion-input id="input-image-p" type="text" placeholder="Enter image url"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="floating">Name</ion-label>
+                    <ion-input id="input-name-p" type="text" placeholder="Displayed name on profile"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="floating">Age</ion-label>
+                    <ion-input id="input-age-p" type="number" placeholder="Displayed age on profile"></ion-input>
                   </ion-item>
 
                   <ion-item>
-                    <ion-label position="floating">Item Name</ion-label>
-                    <ion-input id="input-item-e" type="text" placeholder="What did you buy?"></ion-input>
+                    <ion-label>Gender</ion-label>
+                    <ion-select id="gender" value="non-binary">
+                      <ion-select-option value="female">female</ion-select-option>
+                      <ion-select-option value="male">male</ion-select-option>
+                      <ion-select-option value="non-binary">non-binary</ion-select-option>
+                    </ion-select>
                   </ion-item>
 
                   <ion-item>
-                    <ion-label position="floating">Total Amount</ion-label>
-                    <ion-input id="input-amount-e" type="number" placeholder="Price?"></ion-input>
+                    <ion-label>Notifications</ion-label>
+                    <ion-select id="notifications" value="notifications" interface="action-sheet">
+                      <ion-select-option value="enable">Enable</ion-select-option>
+                      <ion-select-option value="mute">Mute</ion-select-option>
+                      <ion-select-option value="mute_week">Mute for a week</ion-select-option>
+                      <ion-select-option value="mute_year">Mute for a year</ion-select-option>
+                    </ion-select>
                   </ion-item>
 
-                  <div class="ion-margin ion-margin-vertical ion-text-right">
-                    <ion-button fill="outline" color="danger" id="btn-cancel">
-                      <ion-icon name="close"></ion-icon>
-                      Clear
-                    </ion-button>
-                    <ion-button color="danger" id="btn-confirm">Add On</ion-button>
-                  </div>
-                </ion-card-item>
+                  <ion-item>
+                    <ion-label>Birth Year</ion-label>
+                    <ion-select id="birthYear" value="1996">
+                      <ion-select-option value="1989">1989</ion-select-option>
+                      <ion-select-option value="1990">1990</ion-select-option>
+                      <ion-select-option value="1991">1991</ion-select-option>
+                      <ion-select-option value="1992">1992</ion-select-option>
+                      <ion-select-option value="1993">1993</ion-select-option>
+                      <ion-select-option value="1994">1994</ion-select-option>
+                      <ion-select-option value="1995">1995</ion-select-option>
+                      <ion-select-option value="1996">1996</ion-select-option>
+                      <ion-select-option value="1997">1997</ion-select-option>
+                      <ion-select-option value="1998">1998</ion-select-option>
+                      <ion-select-option value="1999">1999</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label>Birthday Month</ion-label>
+                    <ion-select id="birthMonth" value="12">
+                      <ion-select-option value="01">January</ion-select-option>
+                      <ion-select-option value="02">February</ion-select-option>
+                      <ion-select-option value="03">March</ion-select-option>
+                      <ion-select-option value="04">April</ion-select-option>
+                      <ion-select-option value="05">May</ion-select-option>
+                      <ion-select-option value="06">June</ion-select-option>
+                      <ion-select-option value="07">July</ion-select-option>
+                      <ion-select-option value="08">August</ion-select-option>
+                      <ion-select-option value="09">September</ion-select-option>
+                      <ion-select-option value="10">October</ion-select-option>
+                      <ion-select-option value="11">November</ion-select-option>
+                      <ion-select-option value="12">December</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+
+                </ion-list>
               </ion-content>
             </ion-menu>
-            <ion-card id="e-card-content">               
-            </ion-card>
+            <ion-content fullscreen class="ion-padding" >
+              <p id="profileEdit" onclick="update()">Update Profile at top</p>
+              <!------>
+              <!-- <ion-title>.</ion-title><br>
+              <ion-item >
+                <ion-avatar slot="start">
+                  <img
+                    src="">
+                </ion-avatar>
+                <ion-label>
+                  <p></p>
+                </ion-label>
+              </ion-item>
+              <div class="ion-margin ion-margin-vertical ion-text-left">
+                <br>
+                <p>Gender: </p>
+                <p>Notifications: </p>
+                <p>Operating System: </p>
+                <p>Birth Year: </p>
+                <p>Birth Month: </p>
+              </div> -->
+              
+            </ion-content>
             <div class="ion-page" id="main-content">
               <ion-header>
                 <ion-toolbar>
                   <ion-buttons slot="start">
                     <ion-menu-button></ion-menu-button>
                   </ion-buttons>
-                  <ion-title>Entertainment</ion-title>
+                  <ion-title>Profile</ion-title>
                 </ion-toolbar>
               </ion-header>
             </div>
-            
           </ion-content>
+          <!------>
+        </ion-tab>
 
-    </ion-content>
-
-    </ion-tab>
-    <!----------------------------------------------------------------------------------------------------->
-    <ion-tab tab="movies">
-      </ion-header>
-
-      <ion-content fullscreen class="ion-padding">
-        <ion-menu side="start" content-id="main-content">
-          <ion-header>
-            <ion-toolbar translucent>
-              <ion-title>Edit</ion-title>
+        <ion-tab tab="music">
+          <ion-header translucent>
+            <ion-toolbar>
+              <ion-title>Wishlist</ion-title>
             </ion-toolbar>
           </ion-header>
-          <ion-content>
-            <ion-card-item>
 
+          <ion-content fullscreen class="ion-padding">
+            <ion-card>
               <ion-item>
-                <ion-label position="floating">Add Image</ion-label>
-                <ion-input id="input-image-e" type="text" placeholder="Enter image url"></ion-input>
+                <ion-label position="floating">Item Name:</ion-label>
+                <ion-input type="text" id="input-wishlist" placeholder="Wishlist item"></ion-input>
               </ion-item>
-
-              <ion-item>
-                <ion-label position="floating">Item Name</ion-label>
-                <ion-input id="input-item-e" type="text" placeholder="What did you buy?"></ion-input>
-              </ion-item>
-
-              <ion-item>
-                <ion-label position="floating">Total Amount</ion-label>
-                <ion-input id="input-amount-e" type="number" placeholder="Price?"></ion-input>
-              </ion-item>
-
               <div class="ion-margin ion-margin-vertical ion-text-right">
-                <ion-button fill="outline" color="danger" id="btn-cancel">
+                <ion-button fill="outline" color="danger" id="btn-cancel-2">
                   <ion-icon name="close"></ion-icon>
                   Clear
                 </ion-button>
-                <ion-button color="danger" id="btn-confirm">Add On</ion-button>
+                <ion-button color="danger" id="btn-confirm-2">Add</ion-button>
               </div>
-            </ion-card-item>
+              </ion-card-item>
+            </ion-card>
+            <ion-list id="wishlist-checkbox">
+            </ion-list>
           </ion-content>
-        </ion-menu>
+        </ion-tab>
 
-        <div class="ion-page" id="main-content">
-          <ion-header>
-            <ion-toolbar>
-              <ion-buttons slot="start">
-                <ion-menu-button></ion-menu-button>
-              </ion-buttons>
-              <ion-title>Profile</ion-title>
-            </ion-toolbar>
-          </ion-header>
-        </div>
-      </ion-content>
-    </ion-tab>
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button tab="games">
+            <ion-label>Games</ion-label>
+            <ion-icon name="game-controller"></ion-icon>
+          </ion-tab-button>
+          <ion-tab-button tab="music">
+            <ion-label>Excercise</ion-label>
+            <ion-icon name="bicycle"></ion-icon>
+          </ion-tab-button>
+          <ion-tab-button tab="movies">
+            <ion-label>Profile</ion-label>
+            <ion-icon name="person-circle-outline"></ion-icon>
+          </ion-tab-button>
 
-    <ion-tab tab="music">
-      <ion-header translucent>
-        <ion-toolbar>
-          <ion-title>Wishlist</ion-title>
-        </ion-toolbar>
-      </ion-header>
-
-      <ion-content fullscreen class="ion-padding">
-        <ion-card>
-          <ion-item>
-            <ion-label position="floating">Item Name:</ion-label>
-            <ion-input type="text" id="input-wishlist" placeholder="Wishlist item"></ion-input>
-          </ion-item>
-          <div class="ion-margin ion-margin-vertical ion-text-right">
-            <ion-button fill="outline" color="danger" id="btn-cancel-2">
-              <ion-icon name="close"></ion-icon>
-              Clear
-            </ion-button>
-            <ion-button color="danger" id="btn-confirm-2">Add</ion-button>
-          </div>
-          </ion-card-item>
-        </ion-card>
-        <ion-list id="wishlist-checkbox">
-        </ion-list>
-      </ion-content>
-    </ion-tab>
-
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="games">
-        <ion-label>Games</ion-label>
-        <ion-icon color="danger" name="game-controller"></ion-icon>
-      </ion-tab-button>
-      <ion-tab-button tab="music">
-        <ion-label>Excercise</ion-label>
-        <ion-icon color="danger" name="bicycle"></ion-icon>
-      </ion-tab-button>
-      <ion-tab-button tab="movies">
-        <ion-label>Profile</ion-label>
-        <ion-icon color="danger" name="person-circle-outline"></ion-icon>
-      </ion-tab-button>
-
-    </ion-tab-bar>
-    </ion-tabs>
+        </ion-tab-bar>
+      </ion-tabs>
     </ion-content>
   </ion-app>
 
