@@ -37,6 +37,9 @@
           <ion-header translucent>
             <ion-toolbar>
               <ion-title>Entertainment</ion-title>
+                      <ion-buttons slot="primary">
+          <ion-button onclick="toggleReorder()">Toggle</ion-button>
+        </ion-buttons>
             </ion-toolbar>
           </ion-header>
 
@@ -64,6 +67,11 @@
                   <ion-input id="input-amount-e" type="number" placeholder="Price?"></ion-input>
                 </ion-item>
 
+                <ion-item>
+                  <ion-label position="floating">Total Amount</ion-label>
+                  <ion-input id="input-amount-e" type="number" placeholder="Price?"></ion-input>
+                </ion-item>
+
                 <div class="ion-margin ion-margin-vertical ion-text-right">
                   <ion-button fill="outline" color="danger" id="btn-cancel">
                     <ion-icon name="close"></ion-icon>
@@ -72,8 +80,11 @@
                   <ion-button color="danger" id="btn-confirm">Add On</ion-button>
                 </div>
               </ion-card-item>
-              <ion-card id="e-card-content">
-              </ion-card>
+              <ion-reorder-group id="reorder">
+            </ion-card>
+              <ion-content id="e-card-content">
+              </ion-content>
+            </ion-reorder-group>
           </ion-content>
 
         </ion-tab>
@@ -166,7 +177,7 @@
               </ion-content>
             </ion-menu>
             <ion-content fullscreen class="ion-padding" >
-              <p id="profileEdit" onclick="update()">Update Profile at top</p>
+              <p id="profileEdit" onclick="update()" onclick="reset()">Update Profile at top</p>
               <!------>
               <!-- <ion-title>.</ion-title><br>
               <ion-item >

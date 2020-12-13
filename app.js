@@ -55,6 +55,14 @@ var inputAmountE = document.getElementById('input-amount-e');
 var inputImageE = document.getElementById('input-image-e');
 var inputWishlist = document.getElementById('input-wishlist');
 
+function toggleReorder() {
+    const reorderGroup = document.getElementById('reorder');
+    reorderGroup.disabled = !reorderGroup.disabled;
+    reorderGroup.addEventListener('ionItemReorder', ({detail}) => {
+      detail.complete(true);
+    });
+  }
+
 AddButton.addEventListener("click", async function(){
     console.log(inputItemE.value, "$" + inputAmountE.value);
     
@@ -77,7 +85,8 @@ const alert = await alertController.create({
     
     $("#e-card-content").prepend(
         `
-        
+        <ion-reorder>
+        <ion-card>
         <ion-card-header>
         <img src="${eImage}" />
           <ion-card-subtitle>Entertainment Expense</ion-card-subtitle>
@@ -86,16 +95,19 @@ const alert = await alertController.create({
         </ion-card-header>
         <ion-card-content>
           Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
-        </ion-card-content>`
+        </ion-card-content>
+        <ion-card>
+        </ion-reorder>
+        `
     )
     return true; 
 }   
 });
 //Clear Buttons
 ClearBtn.addEventListener("click", function(){
-    eItem = "";
-    eAmount = "";
-    eImage = "";
+    inputItemE.value = "";
+    inputAmountE.value = "";
+    inputImageE.value = "";
 });
 
 
@@ -123,13 +135,16 @@ const alert = await alertController.create({
         <ion-item>
             <ion-label>${wishlist_item}</ion-label>
             <ion-checkbox color="danger" checked slot="start"></ion-checkbox>
+            <ion-reorder slot="start">
+            <ion-icon name="repeat"></ion-icon>
+          </ion-reorder>
           </ion-item>`
     )
     return true; 
 }   
 });
 ClearBtn2.addEventListener("click", function(){
-    wishlist_item = "";
+    inputWishlist.value = "";
 });
 //Menu---------------------------------------------------------------------------
 async function openMenu() {
@@ -216,7 +231,7 @@ const alert = await alertController.create({
 });
 
 ResetButton.addEventListener("click", function reset(){
-    var pImage = inputImageP.value;
+var pImage = inputImageP.value;
 var pName = inputNameP.value;
 var pAge = inputAgeP.value;
 var vGender = gender.value;
